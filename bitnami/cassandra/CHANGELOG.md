@@ -1,6 +1,6 @@
 # Changelog
 
-## 12.0.2 (2024-09-22)
+## 12.0.2 (2024-09-23)
 
 * [bitnami/cassandra] Use common password manager to handle passwords ([#29560](https://github.com/bitnami/charts/pull/29560))
 
