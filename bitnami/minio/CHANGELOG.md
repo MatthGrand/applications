@@ -1,6 +1,6 @@
 # Changelog
 
-## 14.7.11 (2024-09-22)
+## 14.7.11 (2024-09-23)
 
 * [bitnami/minio] Use common password manager to handle credentials ([#29559](https://github.com/bitnami/charts/pull/29559))
 
