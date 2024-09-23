@@ -1,6 +1,6 @@
 # Changelog
 
-## 15.0.1 (2024-09-22)
+## 15.0.1 (2024-09-23)
 
 * [bitnami/rabbitmq] Use common secrets helpers to handle credentials ([#29561](https://github.com/bitnami/charts/pull/29561))
 
