@@ -357,7 +357,7 @@ podSecurityContext:
 containerSecurityContext:
   enabled: true
   seLinuxOptions: {}
-  runAsUser: 1001
+  runAsUser: root
   runAsGroup: 1001
   runAsNonRoot: true
   privileged: false
