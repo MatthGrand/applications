@@ -1254,7 +1254,7 @@ mariadb:
     ## @param mariadb.primary.persistence.size Persistent Volume size
     ##
     persistence:
-      enabled: true
+      enabled: false
       storageClass: ""
       accessModes:
         - ReadWriteOnce
