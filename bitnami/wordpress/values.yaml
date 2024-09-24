@@ -429,7 +429,7 @@ podSecurityContext:
   fsGroupChangePolicy: Always
   sysctls: []
   supplementalGroups: []
-  fsGroup: 1001
+  fsGroup: root
 ## Configure Container Security Context (only main container)
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
 ## @param containerSecurityContext.enabled Enabled containers' Security Context
@@ -446,9 +446,9 @@ podSecurityContext:
 containerSecurityContext:
   enabled: true
   seLinuxOptions: {}
-  runAsUser: 1001
-  runAsGroup: 1001
-  runAsNonRoot: true
+  runAsUser: root
+  runAsGroup: root
+  runAsNonRoot: false
   privileged: false
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
