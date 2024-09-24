@@ -553,7 +553,7 @@ lifecycleHooks: {}
 service:
   ## @param service.type WordPress service type
   ##
-  type: LoadBalancer
+  type: NodePort
   ## @param service.ports.http WordPress service HTTP port
   ## @param service.ports.https WordPress service HTTPS port
   ##
@@ -569,8 +569,8 @@ service:
   ## NOTE: choose port between <30000-32767>
   ##
   nodePorts:
-    http: ""
-    https: ""
+    http: 30086
+    https: 30085
   ## @param service.sessionAffinity Control where client requests go, to the same pod or round-robin
   ## Values: ClientIP or None
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/
