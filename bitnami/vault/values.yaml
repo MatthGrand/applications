@@ -401,7 +401,7 @@ server:
     general:
       ## @param server.service.general.type Vault Server service type
       ##
-      type: ClusterIP
+      type: NodePort
       ## @param server.service.general.ports.http Vault Server service HTTP port
       ## @param server.service.general.ports.internal Vault Server internal port
       ##
@@ -413,7 +413,7 @@ server:
       ## @param server.service.general.nodePorts.internal Node port for HTTP
       ## NOTE: choose port between <30000-32767>
       ##
-      nodePorts:
+      nodePorts:30095
         http: ""
         internal: ""
       ## @param server.service.general.clusterIP Vault Server service Cluster IP
@@ -702,8 +702,14 @@ server:
     ##
     enabled: true
     ## @param server.persistence.mountPath Persistent Volume mount root path
-    ##
+   initContainers:
+      - name: fix-permissions
+        image: busybox  # Utilisation d'une image légère pour les tâches simples
+        command: ['sh', '-c', 'chown -R 1000:1000 /bitnami/vault/data']  # Modification des permissions
+        volumeMounts:
+        - name: vault-data
     mountPath: /bitnami/vault/data
+    
     ## @param server.persistence.storageClass Persistent Volume storage class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
