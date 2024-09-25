@@ -413,8 +413,8 @@ server:
       ## @param server.service.general.nodePorts.internal Node port for HTTP
       ## NOTE: choose port between <30000-32767>
       ##
-      nodePorts: 30095
-        http: 80
+      nodePorts:
+        http: 30095
         internal: ""
       ## @param server.service.general.clusterIP Vault Server service Cluster IP
       ## e.g.:
