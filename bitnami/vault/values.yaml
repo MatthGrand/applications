@@ -414,7 +414,7 @@ server:
       ## NOTE: choose port between <30000-32767>
       ##
       nodePorts: 30095
-        http: ""
+        http: 80
         internal: ""
       ## @param server.service.general.clusterIP Vault Server service Cluster IP
       ## e.g.:
