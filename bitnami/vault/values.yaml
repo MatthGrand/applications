@@ -702,7 +702,7 @@ server:
     ##
     enabled: true
     ## @param server.persistence.mountPath Persistent Volume mount root path
-   mountPath: /bitnami/vault/data
+    mountPath: /bitnami/vault/data
     
     ## @param server.persistence.storageClass Persistent Volume storage class
     ## If defined, storageClassName: <storageClass>
