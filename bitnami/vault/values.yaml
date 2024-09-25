@@ -702,13 +702,7 @@ server:
     ##
     enabled: true
     ## @param server.persistence.mountPath Persistent Volume mount root path
-   initContainers:
-      - name: fix-permissions
-        image: busybox  # Utilisation d'une image légère pour les tâches simples
-        command: ['sh', '-c', 'chown -R 1000:1000 /bitnami/vault/data']  # Modification des permissions
-        volumeMounts:
-        - name: vault-data
-    mountPath: /bitnami/vault/data
+   mountPath: /bitnami/vault/data
     
     ## @param server.persistence.storageClass Persistent Volume storage class
     ## If defined, storageClassName: <storageClass>
@@ -967,7 +961,12 @@ csiProvider:
   ##    imagePullPolicy: Always
   ##    command: ['sh', '-c', 'echo "hello world"']
   ##
-  initContainers: []
+  initContainers: 
+      - name: fix-permissions
+        image: busybox  # Utilisation d'une image légère pour les tâches simples
+        command: ['sh', '-c', 'chown -R 1000:1000 /bitnami/vault/data']  # Modification des permissions
+        volumeMounts:
+        - name: vault-data
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param csiProvider.podSecurityContext.enabled Enabled CSI Provider pods' Security Context
