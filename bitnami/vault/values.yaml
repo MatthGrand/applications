@@ -92,7 +92,7 @@ server:
         image: busybox  # Utilisation d'une image légère pour les tâches simples
         command: ['sh', '-c', 'chown -R 1001:1001 /bitnami/vault/data']  # Modification des permissions
         volumeMounts:
-        - name: vault-data
+        - name: data
   image:
     registry: docker.io
     repository: bitnami/vault
