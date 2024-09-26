@@ -87,6 +87,12 @@ server:
   ## @param server.image.pullSecrets Vault Server image pull secrets
   ## @param server.image.debug Enable Vault Server image debug mode
   ##
+  initContainers: 
+      - name: fix-permissions
+        image: busybox  # Utilisation d'une image légère pour les tâches simples
+        command: ['sh', '-c', 'chown -R 1001:1001 /bitnami/vault/data']  # Modification des permissions
+        volumeMounts:
+        - name: vault-data
   image:
     registry: docker.io
     repository: bitnami/vault
@@ -961,12 +967,6 @@ csiProvider:
   ##    imagePullPolicy: Always
   ##    command: ['sh', '-c', 'echo "hello world"']
   ##
-  initContainers: 
-      - name: fix-permissions
-        image: busybox  # Utilisation d'une image légère pour les tâches simples
-        command: ['sh', '-c', 'chown -R 1001:1001 /bitnami/vault/data']  # Modification des permissions
-        volumeMounts:
-        - name: vault-data
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param csiProvider.podSecurityContext.enabled Enabled CSI Provider pods' Security Context
